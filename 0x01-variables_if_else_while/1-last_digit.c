@@ -11,13 +11,13 @@
  */
 int main(void)
 {
-int n;
-int last_num;
+	int n;
+	int last_num;
 
-last_num = n % 10;/*use modulo to extract last digit of n */
-srand(time(0));
-n = rand() - RAND_MAX / 2;
+	srand(time(0));
+	n = rand() - RAND_MAX / 2;
 
+	last_num = n % 10;
 	if (last_num > 5)
 	{
 	printf("Last digit of %d is %d and is greater than 5\n", n, last_num);
