@@ -15,8 +15,8 @@ int main(void)
 	if (small_letter != 'q' && small_letter != 'e')
 		{
 		putchar(small_letter);
-		small_letter++;
 		}
+	small_letter++;
 	}
 	putchar('\n');
 	return (0);
