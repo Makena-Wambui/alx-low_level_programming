@@ -2,7 +2,7 @@
 /**
  *main - this is the entry point of the program.
  *
- *Description: This function prints 0 to 9.
+ *Description: This function prints hexa in lowercase.
  *
  *Return: Always 0 (Success).
  */
