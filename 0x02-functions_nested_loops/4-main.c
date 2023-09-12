@@ -20,7 +20,7 @@ int main(void)
 
 	r = _isalpha(108);
 	_putchar(r + '0');
-	
+
 	r = _isalpha(';');
 	_putchar(r + '0');
 
