@@ -25,5 +25,4 @@ for (hour = 00; hour < 24; hour++)
 		_putchar('\n');
 	}
 }
-	return;
 }
