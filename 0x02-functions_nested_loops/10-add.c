@@ -1,7 +1,8 @@
 #include "main.h"
 /**
  * add - this function prints the sum to stdout.
- * @a,b: integer parameters
+ * @a: integer parameter.
+ * @b: integer parameter.
  * Description: This function add two integers together.
  *
  * Return: c (the sum of the two integers).
