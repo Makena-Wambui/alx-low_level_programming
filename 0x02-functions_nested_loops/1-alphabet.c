@@ -1,14 +1,15 @@
 #include "main.h"
 /**
- * main - this function prints a message to std output.
+ * print_alphabet - This function prints to std output.
  *
- * Description: This function prints 'a' to 'z' to stdout.
+ * Description: This function prints 'a' to 'z'.
  *
- * Return: 0 (on success).
+ * Return: void(does not have any return value).
  */
 
-int main(void)
+void print_alphabet(void)
 {
-	print_alphabet();
-	return (0);
+	for (char ch = 'a'; ch <= 'z'; ch++)
+	_putchar(ch);
+	_putchar('\n');
 }
