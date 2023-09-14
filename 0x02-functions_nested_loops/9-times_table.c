@@ -19,13 +19,15 @@ for (r = 0; r <= 9; r++)
 	for (c = 0; c <= 9; c++)
 	{
 	mult = c * r;
-	if (c == 9)
+	if (c == 0)
 	{
-	printf("%2d", mult);/*no comma and space after last column*/
+	printf("%d, ", mult);
 	}
 	else
 	{
-	printf("%2d, ", mult);/*comma and space after last columns*/
+	printf("%2d", mult);
+	if (c != 9)
+	printf(", ");
 	}
 	}
 	printf("\n");
