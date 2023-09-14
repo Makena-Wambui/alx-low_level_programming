@@ -1,7 +1,7 @@
 #include <stdio.h>
 /**
  * main - this is the entry point of the program.
- * It prints Fizz, Buzz, FizzBuzz and a.
+ * It prints FizzBuzz,Buzz, Fizz and a.
  *
  * Return: 0 on success.
  */
@@ -12,17 +12,17 @@ int a;
 
 for (a = 1; a <= 100; a++)
 {
-if (a % 3 == 0)
+if (a % 3 == 0 && a % 5 == 0)
+{
+printf("FizzBuzz ");
+}
+else if (a % 3 == 0)
 {
 printf("Fizz ");
 }
 else if (a % 5 == 0)
 {
 printf("Buzz ");
-}
-else if (a % 3 == 0 && a % 5 == 0)
-{
-printf("FizzBuzz ");
 }
 else
 {
