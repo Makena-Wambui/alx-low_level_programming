@@ -15,7 +15,7 @@ int m;
 
 printf("%lu, ", num1);
 
-for (m = 1; m <= 50; m++)
+for (m = 1; m < 50; m++)
 {
 	printf("%lu", num2);
 	sum = num1 + num2;

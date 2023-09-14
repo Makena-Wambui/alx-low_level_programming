@@ -1,4 +1,5 @@
 #include "main.h"
+#include <stdio.h>
 /**
  * times_table - this function prints to std out.
  *
@@ -13,22 +14,20 @@ int r;
 int c;
 int mult;
 
-for (r = 0; r < 10; r++)
+for (r = 0; r <= 9; r++)
 {
-	for (c = 0; c < 10; c++)
+	for (c = 0; c <= 9; c++)
 	{
 	mult = c * r;
-	if (mult < 10)
+	if (c == 0)
 	{
-	_putchar(' ');
-	_putchar(' ');
-	_putchar(mult + '0')
+	printf("%d, ", mult);
 	}
 	else
 	{
-	_putchar('$');
+	printf("%2d, ", mult);
 	}
 	}
-	_putchar('\n');
+	printf("\n");
 }
 }
