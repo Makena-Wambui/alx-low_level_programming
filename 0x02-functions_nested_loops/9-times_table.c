@@ -28,7 +28,6 @@ for (r = 0; r <= 9; r++)
 	printf("%2d, ", mult);/*comma and space after last columns*/
 	}
 	}
-	if (r != 9)
-	printf("\n");/*print new line after each row except the last row*/
+	printf("\n");
 }
 }
