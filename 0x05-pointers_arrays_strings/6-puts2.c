@@ -15,6 +15,9 @@ void puts2(char *str)
 
 	size = strlen(str);
 	a = 0;
+
+	if (!str)/*empty string*/
+		return;
 	while (a <= size)
 	{
 		_putchar(str[a]);
