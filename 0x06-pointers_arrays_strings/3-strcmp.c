@@ -4,7 +4,7 @@
  * character by character.
  * @s1: character array.
  * @s2: character array.
- * Return:0 if equal,-1 if s1 is less than s2, 1 if s1 is greater.
+ * Return:0 if equal,-15 if s1 is less than s2, 15 if s1 is greater.
  */
 
 int _strcmp(char *s1, char *s2)
