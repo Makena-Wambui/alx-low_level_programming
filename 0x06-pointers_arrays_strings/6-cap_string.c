@@ -8,16 +8,10 @@
 char *cap_string(char *s)
 {
 	int a; /* for indexing*/
+	int caps = 1; /*set a flag to capitalize next character*/
 
 	for (a = 0; s[a] != '\0'; a++)
 	{
-	/*check if first char is lowercase*/
-	if (a == 0)
-	{
-		if (s[a] >= 'a' && s[a] <= 'z')
-			s[a] = s[a] - 32;/*to capitalize it*/
-		continue; /*continue to loop */
-	}
 	/* check for these characters*/
 	if (s[a] == ' ' ||
 	s[a] == '\t' ||
@@ -31,13 +25,15 @@ char *cap_string(char *s)
 	s[a] == '(' ||
 	s[a] == ')' ||
 	s[a] == '{' ||
-	s[a] == '}' ||
-	(s[a] == '.' && s[a] == '\n'))
+	s[a] == '}')
 	{
-		a++; /*check next character*/
-	/*check if next char is lowercase and capitalize*/
+	caps = 1;
+	}
+	else if (caps)
+	{
 	if (s[a] >= 'a' && s[a] <= 'z')
 		s[a] = s[a] - 32;
+	caps = 0; /* Reset the flag */
 	}
 }
 	return (s);
