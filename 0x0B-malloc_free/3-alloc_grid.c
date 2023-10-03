@@ -10,7 +10,7 @@
 int **alloc_grid(int width, int height)
 {
 	int **my2dgrid;
-	int a, d, q, r;
+	int a, d, q;
 
 	if (width <= 0 || height <= 0)
 		return (NULL);
@@ -31,11 +31,11 @@ int **alloc_grid(int width, int height)
 			return (NULL);
 		}
 	}
-	for (q = 0; q < width; q++)
+	for (a = 0; a < height; a++)
 	{
-		for (r = 0; r < height; r++)
+		for (q = 0; q < width; q++)
 		{
-		my2dgrid[q][r] = 0;
+		my2dgrid[a][q] = 0;
 		}
 	}
 	return (my2dgrid);
