@@ -17,7 +17,7 @@ char *str_concat(char *s1, char *s2)
 	size_t s2len = strlen(s2);
 
 	/*length of new string in heap s3*/
-	unsigned int s3len = s1len + s2len + 1;
+	unsigned int s3len = s1len + s2len;
 	unsigned int a, q;
 
 	if (s1 == NULL)
