@@ -1,6 +1,11 @@
 #include "main.h"
 #include <stdlib.h>
-
+/**
+ * free_grid - this function frees a 2D grid.
+ * @grid: a double pointer to the allocated mem by malloc.
+ * @height:height of my 2D array.
+ * Return: void
+ */
 void free_grid(int **grid, int height)
 {
 	/*follow the pointer*/
