@@ -13,12 +13,12 @@ char *str_concat(char *s1, char *s2)
 	char *s3;
 
 	/*lets find length of s1 and s2*/
-	int s1len = strlen(s1);
-	int s2len = strlen(s2);
+	size_t s1len = strlen(s1);
+	size_t s2len = strlen(s2);
 
 	/*length of new string in heap s3*/
-	int s3len = s1len + s2len;
-	int a, q;
+	unsigned int s3len = s1len + s2len + 1;
+	unsigned int a, q;
 
 	if (s1 == NULL)
 		s1 = "";
