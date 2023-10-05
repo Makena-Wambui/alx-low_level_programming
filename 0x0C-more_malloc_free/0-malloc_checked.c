@@ -10,7 +10,7 @@ void *malloc_checked(unsigned int b)
 {
 	/*declare a void pointer, pntr*/
 	void *pntr;
-	
+
 	pntr = malloc(b);
 
 	/*check if malloc was successful*/
