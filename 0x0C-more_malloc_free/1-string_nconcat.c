@@ -11,7 +11,7 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
 	char *pntr;
 	unsigned int lens1, lens2 = 0;
-	unsigned int a, b = 0;
+	unsigned int a;
 
 	if (s1 == NULL)
 		s1 = "";
@@ -33,18 +33,16 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 		pntr[a] = s1[a];
 	if (n >= lens2)
 	{
-		for (a = 0; a < (lens1 + lens2) && s2[b] != '\0'; a++)
+		for (a = 0; a < (lens1 + lens2); a++)
 		{
-			pntr[lens1 + a] = s2[b];
-			b++;
+			pntr[lens1 + a] = s2[a];
 		}
 	}
 	else if (n < lens2)
 	{
-		for (a = 0; a < (lens1 + n) && s2[b] != '\0'; a++)
+		for (a = 0; a < (lens1 + n); a++)
 		{
-			pntr[lens1 + a] = s2[b];
-			b++;
+			pntr[lens1 + a] = s2[a];
 		}
 	}
 	pntr[a] = '\0';/*allocate null byte*/
