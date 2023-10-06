@@ -21,30 +21,29 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 		lens1++;
 	for (a = 0; s2[a] != '\0'; a++)
 		lens2++;
-	if (n >= lens2)/*allocate mem for s1 and n bytes of s2*/
-	{
-		pntr = malloc(sizeof(char)  * (lens1 + lens2 + 1));
-	}
-	else if (n < lens2)
-		pntr = malloc(sizeof(char) * (lens1 + n + 1));
+	/*allocate mem for s1 and n bytes of s2*/
+	pntr = malloc(sizeof(char)  * (lens1 + n + 1));
 	if (pntr == NULL)
 		return (NULL);
-	for (a = 0; a < lens1; a++)/*copy s1 into pntr*/
-		pntr[a] = s1[a];
 	if (n >= lens2)
 	{
-		for (a = 0; a < (lens1 + lens2); a++)
+		for (a = 0; s1[a] != '\0'; a++)
 		{
-			pntr[lens1 + a] = s2[a];
+			pntr[a] = s1[a];
 		}
+		for (a = 0; s2[a] != '\0'; a++)
+			pntr[lens1 + a] = s2[a];
+		pntr[lens1 + a] = '\0';
 	}
 	else if (n < lens2)
 	{
-		for (a = 0; a < (lens1 + n); a++)
+		for (a = 0; s1[a] != '\0'; a++)
 		{
-			pntr[lens1 + a] = s2[a];
+			pntr[a] = s1[a];
 		}
+		for (a = 0; a < n; a++)
+			pntr[lens1 + a] = s2[a];
+		pntr[lens1 + a] = '\0';
 	}
-	pntr[a] = '\0';/*allocate null byte*/
 	return (pntr);
 }
