@@ -20,7 +20,7 @@ void print_numbers(const char *separator, const unsigned int n, ...)
 	{
 		printf("%d", va_arg(p, unsigned int));
 	/*print separator after each number except the last one*/
-		if (separator != NULL && a < n - 1)
+		if (separator && a < n - 1)
 			printf("%s", separator);
 	}
 	printf("\n");
