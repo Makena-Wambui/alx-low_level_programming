@@ -18,7 +18,7 @@ void print_numbers(const char *separator, const unsigned int n, ...)
 	va_start(p, n);
 	for (a = 0; a < n; a++)
 	{
-		printf("%d", va_arg(p, unsigned int));
+		printf("%d", va_arg(p, int));
 	/*print separator after each number except the last one*/
 		if (separator && a < n - 1)
 			printf("%s", separator);
