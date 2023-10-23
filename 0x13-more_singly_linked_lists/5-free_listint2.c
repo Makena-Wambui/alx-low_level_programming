@@ -7,14 +7,19 @@
 
 void free_listint2(listint_t **head)
 {
-	listint_t *temp;
+	listint_t *temp, *ptr;
 
-	while (*head != NULL)
+	/* do not dereference a nill pointer*/
+	if (*head != NULL)
 	{
-		temp = *head;
-		*head = (*head)->next;
-		free(temp);
-	}
+		ptr = *head;
+		while ((temp = ptr) != NULL)
+		{
+			ptr = ptr->next;
+			free(temp);
+		}
+
 		*head = NULL;
 
+	}
 }
