@@ -58,3 +58,16 @@ Write a function that adds a new node at the end of a listint_t list.
 
 Prototype: listint_t *add_nodeint_end(listint_t **head, const int n);
 Return: the address of the new element, or NULL if it failed
+
+QUESTION 4
+Write a function that inserts a new node at a given position.
+
+Prototype: listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n);
+where idx is the index of the list where the new node should be added. Index starts at 0
+Returns: the address of the new node, or NULL if it failed
+if it is not possible to add the new node at index idx, do not add the new node and return NULL
+
+QUESTION 5
+Write a function that frees a listint_t list.
+
+Prototype: void free_listint(listint_t *head);
