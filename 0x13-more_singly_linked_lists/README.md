@@ -101,3 +101,15 @@ Write a function that returns the sum of all the data (n) of a listint_t linked 
 
 Prototype: int sum_listint(listint_t *head);
 if the list is empty, return 0
+
+QUESTION 11
+Write a function that prints a listint_t linked list.
+
+Prototype: size_t print_listint_safe(const listint_t *head);
+Returns: the number of nodes in the list
+This function can print lists with a loop
+You should go through the list only once
+If the function fails, exit the program with status 98
+
+EXPLANATION OF QUESTION 11
+The main difference between the print_listint_safe function and a regular print_listint function lies in the ability to handle lists with loops. The print_listint_safe function is designed to detect if a linked list contains a loop and print the nodes up to the point where the loop is detected. It achieves this by using Floyd's cycle-finding algorithm (also known as the "tortoise and hare" algorithm).
