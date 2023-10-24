@@ -1,5 +1,30 @@
 #include "lists.h"
 /**
+ * free_myversion - thsi function frees a linked list
+ * of type my_version.
+ * @head: double pointer to the first node.
+ * Return: void.
+ */
+
+void free_myversion(my_version **head)
+{
+	my_version *temp, *ptr;
+
+	if (head != 0)
+	{
+		/*initialize ptr to the head of the list*/
+		ptr = *head;
+		/*assign current node being processed to temp*/
+		while ((temp = ptr) != 0)
+		{
+			ptr = ptr->next;
+			free(temp); /*free current node*/
+		}
+		*head = 0;
+
+	}
+}
+/**
  * print_listint_safe - this function prints a listint_t linked list.
  * @head: pointer to the first node.
  * Return: count. (number of nodes.)
@@ -11,34 +36,40 @@
 size_t print_listint_safe(const listint_t *head)
 {
 	/**
-	 * we use two pointers hare and tortoise for traversal.
-	 * Hare moves twice as fast as tortoise.
-	 * if there is a loop in the list the two will eventually meet ie
-	 * tortoise is equal to hare.
+	 * already_visited LL stores the pointers of nodes already visited.
+	 * temp stores current pointer
+	 * use hare to traverse already_visited LL to check for loops.
 	 */
-	const listint_t *tortoise, *hare;
+	my_version *already_visited, *temp, *hare;
 	size_t count = 0;
 
-	/*if list is empty*/
-	if (head == NULL)
+	already_visited = NULL;
+	while (head != NULL)
 	{
-		exit(98);
-	}
-	tortoise = hare = head;
+		temp = malloc(sizeof(my_version));
 
-	while (hare != NULL && hare->next != NULL)
-	{
-		printf("[%p] %d\n", (void *)tortoise, tortoise->n);
-		count++;
-		tortoise = tortoise->next;
-		hare = hare->next->next;
-
-		/*  tortoise = hare so a loop has been detected.*/
-		if (tortoise == hare)
-		{
-			printf("-> [%p] %d\n", (void *)tortoise, tortoise->n);
+		if (temp == 0)
 			exit(98);
+		temp->am = (void *)head;
+		temp->next = already_visited;
+		already_visited = temp;
+
+		hare = already_visited;
+		while (hare->next != 0)
+		{
+			hare = hare->next;
+			if (head == hare->am) /*loop detected*/
+			{
+				printf("-> [%p] %d\n", (void *)head, head->n);
+				free_myversion(&already_visited);
+				return (count);
+			}
 		}
+
+		printf("[%p] %d\n", (void *)head, head->n);
+		head = head->next;
+		count++;
 	}
+	free_myversion(&already_visited);
 	return (count);
 }
