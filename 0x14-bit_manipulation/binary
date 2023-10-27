@@ -1,0 +1,43 @@
+#include "main.h"
+/**
+ * print_binary - this function prints the binary representation of a number.
+ * @n : param 1
+ * Return: nothing.
+ * For any number, we can check whether its ‘a’th bit is 0(OFF) or 1(ON) by
+ * bitwise ANDing it with “2^a” (2 raise to a).
+ * Let us take unsigned integer (32 bit), which consist of 0-31 bits.
+ * To print binary representation of unsigned integer, start from 31th bit.
+ * Check whether 31th bit is ON or OFF.
+ * if it is ON print “1” else print “0”.
+ * Now check whether 30th bit is ON or OFF
+ * if it is ON print “1” else print “0”.
+ * do this for all bits from 31 to 0
+ * finally we will get binary representation of number.
+ *
+ */
+
+void print_binary(unsigned n)
+{
+	unsigned a;
+
+	/**
+	 * Initializes a with the value of 1 left-shifted by 31 positions.
+	 * loop continues as long as a is greater than 0.
+	 * In each iteration, a is right-shifted by 1.
+	 */
+
+	for (a = 1 << 31; a > 0; a = a / 2)
+	{
+		/**
+		 * This line uses the ternary operator ((n & i) ? '1' : '0').
+		 * Determines whether the result of the bitwise AND operation is non-zero.
+		 * If it is, it prints the character '1';
+		 * otherwise, it prints the character '0'
+		 */
+		_putchar((n & a) ? '1' : '0');
+	}
+	/*
+	 * The loop continues to iterate through the bits of n
+	 * shifting a right in each iteration until a becomes 0.
+	 */
+}
