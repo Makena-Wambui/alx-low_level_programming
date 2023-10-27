@@ -30,6 +30,8 @@ Format: see example
 You are not allowed to use arrays
 You are not allowed to use malloc
 You are not allowed to use the % or / operators
+
+
 QUESTION 3
 Write a function that returns the value of a bit at a given index.
 
