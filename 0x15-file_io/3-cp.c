@@ -19,7 +19,7 @@ void print_error_and_exit(int code, const char *message, const char *arg)
  */
 int main(int argc, char *argv[])
 {
-	int fd_1, fd_2;
+	int fd_1, fd_2, close_val;
 	char buf[BUFSIZE];
 	ssize_t b_read, written;
 	const char *file_from = argv[1];
@@ -42,12 +42,14 @@ int main(int argc, char *argv[])
 	if (written == -1)
 		print_error_and_exit(99, "Error: Can't write to file %s\n", file_to);
 	} while (b_read > 0);
-	if (close(fd_1) == -1)
+	close_val = close(fd_1);
+	if (close_val == -1)
 	{
 	dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd_1);
 	exit(100);
 	}
-	if (close(fd_2) == -1)
+	close_val = close(fd_2);
+	if (close_val == -1)
 	{
 	dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd_2);
 	exit(100);
