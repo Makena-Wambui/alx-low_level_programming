@@ -46,3 +46,40 @@ Return: 1 on success and -1 on failure
 Do not create the file if it does not exist
 If filename is NULL return -1
 If text_content is NULL, do not add anything to the file. Return 1 if the file exists and -1 if the file does not exist or if you do not have the required permissions to write the file
+
+QUESTION 3
+
+Write a program that copies the content of a file to another file.
+
+Usage: cp file_from file_to
+if the number of argument is not the correct one, exit with code 97 and print Usage: cp file_from file_to, followed by a new line, on the POSIX standard error
+if file_to already exists, truncate it
+if file_from does not exist, or if you can not read it, exit with code 98 and print Error: Can't read from file NAME_OF_THE_FILE, followed by a new line, on the POSIX standard error
+where NAME_OF_THE_FILE is the first argument passed to your program
+if you can not create or if write to file_to fails, exit with code 99 and print Error: Can't write to NAME_OF_THE_FILE, followed by a new line, on the POSIX standard error
+where NAME_OF_THE_FILE is the second argument passed to your program
+if you can not close a file descriptor , exit with code 100 and print Error: Can't close fd FD_VALUE, followed by a new line, on the POSIX standard error
+where FD_VALUE is the value of the file descriptor
+Permissions of the created file: rw-rw-r--. If the file already exists, do not change the permissions
+You must read 1,024 bytes at a time from the file_from to make less system calls. Use a buffer
+You are allowed to use dprintf
+
+EXPLANATION OF QUESTION 3
+#include <sys/types.h>
+#include <sys/stat.h>
+What are these header files?
+The sys/types.h and sys/stat.h header files in C are part of the system-specific headers in the Unix and POSIX standards. They define types and structures used by the operating system for various system calls, file handling, and other low-level operations.
+
+sys/types.h:
+This header file provides definitions for various types used in system calls. Common types include size_t, pid_t (process ID), uid_t (user ID), gid_t (group ID), and others.
+It's a standard header in Unix-like operating systems and POSIX-compliant systems. 
+
+sys/stat.h:
+This header file provides declarations for data structures used to represent file status and information. The most commonly used structure is struct stat.
+It includes constants and macros related to file permissions (S_IRUSR, S_IWUSR, etc.), file types (S_IFREG, S_IFDIR, etc.), and various flags used in system calls.
+The struct stat holds information about a file, such as its size, owner, permissions, modification time, and other attributes.
+
+
+The function dprintf() is the same as fprintf() except that it outputs to a file descriptor, fd, instead of to a stdio stream.
+THE LOOP:
+Reads data from the source file in chunks of BUF_SIZE using read and writes it to the destination file using write. The loop continues until read returns 0 (indicating the end of the file).
