@@ -4,9 +4,9 @@
 
 int main(void)
 {
-	char *my_name = "My-name-is-Makena";
+	char my_name[] = "My-name-is-Makena";
 	/*declare an array of string pointers to store the tokens*/
-	char *tokens_storage[15];
+	char *tokens_storage[25];
 	char *token;
 	int a = 0;
 	int b;
@@ -20,7 +20,7 @@ int main(void)
 	}
 	
 	/*if token is NULL then it means no more tokens can be extracted from the string*/
-	while (token != NULL && a < 15)
+	while (token != NULL && a < 25)
 	{
 		/*store each token in the array*/
 		tokens_storage[a] = token;
@@ -31,7 +31,7 @@ int main(void)
 		 * subsequent calls, it continues tokenizing the same
 		 * string from the last position.
 		 */
-		if (token == NULL && a < 15)
+		if (token == NULL && a < 25)
 		{
 			perror("strtok");
 			return 1;
@@ -42,7 +42,7 @@ int main(void)
 		if (printf("Token %d: %s\n", b + 1, tokens_storage[b]) < 0)
 		{
 			perror("printf");
-		}
+	}
 	}
 	return (0);
 }
