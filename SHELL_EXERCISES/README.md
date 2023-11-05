@@ -59,3 +59,7 @@ where env is a NULL terminated array of strings.
 Write a program that prints the environment using the global variable environ.
 
 
+1. env vs environ
+Write a program that prints the address of env (the third parameter of the main function) and environ (the global variable). Are they they same? Does this make sense?
+
+
