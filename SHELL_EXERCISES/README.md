@@ -51,4 +51,11 @@ The stat (man 2 stat) system call gets the status of a file. On success, zero is
 Exercise: find a file in the PATH
 Write a program that looks for files in the current PATH.
 
+Environment:
+Using main to print the environment:  int main(int ac, char **av, char **env);
+where env is a NULL terminated array of strings.
+
+0. printenv with environ
+Write a program that prints the environment using the global variable environ.
+
 
