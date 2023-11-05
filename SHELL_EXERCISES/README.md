@@ -23,3 +23,32 @@ Executing a program
 The system call execve allows a process to execute another program (man 2 execve). Note that this system call does load the new program into the current process’ memory in place of the “previous” program: on success execve does not return to continue the rest of the “previous” program.
 
 Write a program that executes the command ls -l /tmp in 5 different child processes. Each child should be created by the same process (the father). Wait for a child to exit before creating a new child.
+
+BUFFER EXPLAINED AND FFLUSH EXPLAINED
+A function in C
+Used to flush the output buffer of a stream.
+
+A buffer is a temporary storage space used to hold data.
+A container where you put things for a while before you do something with them
+
+In programming, when you read or write data, it is more efficient to do this in chunks rather than one piece at a time.
+So we use a buffer to hold onto a certain amount of  data until you are ready to proceess it or send it somewhere.
+A buffer is a tool used to manage and organize data for efficiency and smmother operations.
+
+fflush is used for manual flushing to ensure the data in the buffer is immediately sent to the file or to device.
+We use fflush immediately after printing the prompt. This is to ensure the prompt is immediately displayed on the terminal instead of being held in the buffer until a newline or some other condition triggers automatic flushing.
+Important for providing a more responsive user interface.
+For example:  fflush(stdout) ensures that any buffered data for the stdout stream is immediately sent to the standard output.
+
+
+Exercise: super simple shell
+Using everything we saw, write a first version of a super simple shell that can run commands with their full path, without any argument.
+
+
+File information
+The stat (man 2 stat) system call gets the status of a file. On success, zero is returned. On error, -1 is returned.
+
+Exercise: find a file in the PATH
+Write a program that looks for files in the current PATH.
+
+
