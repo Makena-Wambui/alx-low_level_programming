@@ -69,4 +69,9 @@ Prototype: char *_getenv(const char *name);
 man 3 getenv
 
 3. PATH
+
 Write a function that prints each directory contained in the the environment variable PATH, one directory per line.
+
+
+4. PATH
+Write a function that builds a linked list of the PATH directories.
