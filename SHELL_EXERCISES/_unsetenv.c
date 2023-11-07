@@ -19,9 +19,9 @@ int _unsetenv(const char *name)
 
 	if (name == NULL)
 	{
-		perror("Inavalid.\n");
+		perror("Invalid.\n");
 		return -1;
-	}
+	}i
 	/*let us iterating thro the environ to find name*/
 	remove = -1;
 	/* remove keeps track of whether the variable has been found,
