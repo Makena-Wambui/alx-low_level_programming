@@ -38,7 +38,10 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 		} /* invalid index that is out of bounds */
 		newnode->next = temp->next;
 		newnode->prev = temp;
-		temp->next->prev = newnode;
+		if (temp->next != NULL)
+		{
+			temp->next->prev = newnode;
+		}
 		temp->next = newnode;
 	}
 	return (newnode);
