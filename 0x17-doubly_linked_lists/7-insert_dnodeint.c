@@ -26,11 +26,16 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 	}
 	else
 	{
-		while (i < idx)
+		while (temp != NULL && i < idx)
 		{
 			temp = temp->next;
 			i++;
 		}
+		if (temp == NULL)
+		{
+			free(newnode);
+			return (NULL);
+		} /* invalid index that is out of bounds */
 		newnode->next = temp->next;
 		newnode->prev = temp;
 		temp->next->prev = newnode;
