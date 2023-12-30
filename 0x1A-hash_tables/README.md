@@ -47,4 +47,10 @@ The input string is an array of unsigned characters. The hash function generates
 
 The return value is an unsigned long int, which is the generated hash value.
 
-
+QUESTION 3:
+Write a function that gives you the index of a key.
+Prototype: unsigned long int key_index(const unsigned char *key, unsigned long int size);
+where key is the key
+and size is the size of the array of the hash table
+This function should use the hash_djb2 function that you wrote earlier
+Returns the index at which the key/value pair should be stored in the array of the hash table
