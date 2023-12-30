@@ -42,5 +42,6 @@ int main(void)
 	b = hash_function("Cau");
 	printf("%ld\n", b);
 	printf("%ld\n", result);
+	create_item("alice", "tall");
 	return (0);
 }
