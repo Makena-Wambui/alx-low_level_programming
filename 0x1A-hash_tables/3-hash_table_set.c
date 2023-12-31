@@ -16,6 +16,12 @@ hash_node_t *node_creation(const char *key, const char *value)
 	}
 	new->key = malloc(strlen(key) + 1);
 	new->value = malloc(strlen(value) + 1);
+	if (new->key == NULL || new->value == NULL)
+	{
+		printf("Malloc failure.\n");
+		free(new);
+		return (0);
+	}
 	strcpy(new->key, key);
 	strcpy(new->value, value);
 	new->next = NULL;
