@@ -41,13 +41,17 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	unsigned long int index;
 	hash_node_t *new;
 
-	new = node_creation(key, value);
-	index = key_index((unsigned char *) key, ht->size);
-
 	if (key == NULL || *key == '\0' || ht == NULL || value == NULL)
 	{
 		return (0);
 	}
+	new = node_creation(key, value);
+	if (new == NULL)
+	{
+		printf("Malloc failure.\n");
+		return (0);
+	}
+	index = key_index((unsigned char *) key, ht->size);
 	/* if that index is empty, insert directly.*/
 	if (ht->array[index] == NULL)
 	{
