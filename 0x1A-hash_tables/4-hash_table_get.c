@@ -20,10 +20,15 @@ char *hash_table_get(const hash_table_t *ht, const char *key)
 
 	if (node != NULL)
 	{
-		/* key exixts.*/
-		if (strcmp(node->key, key) == 0)
+		/* add code for taraversal.*/
+		while (node != NULL)
 		{
-			return (node->value);
+			/* check if node is null before accessing its properties.*/
+			if (node != NULL && strcmp(node->key, key) == 0)
+			{
+				return (node->value);
+			}
+			node = node->next;
 		}
 	}
 	return (NULL);
