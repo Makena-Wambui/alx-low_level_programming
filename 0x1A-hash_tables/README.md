@@ -70,3 +70,9 @@ Prototype: char *hash_table_get(const hash_table_t *ht, const char *key);
 where ht is the hash table you want to look into
 and key is the key you are looking for
 Returns the value associated with the element, or NULL if key couldn’t be found
+
+
+QUESTION 6:
+Write a function that deletes a hash table.
+Prototype: void hash_table_delete(hash_table_t *ht);
+where ht is the hash table
