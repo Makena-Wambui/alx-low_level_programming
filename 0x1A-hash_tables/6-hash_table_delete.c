@@ -10,6 +10,10 @@ void hash_table_delete(hash_table_t *ht)
 	hash_node_t *node, *ptr;
 	hash_table_t *tmp = ht;
 
+	/* include this check to prevent undefined behavior.*/
+	if (ht == NULL)
+		return;
+
 	for (i = 0; i < ht->size; i++)
 	{
 		if (ht->array[i] != NULL)
@@ -28,4 +32,5 @@ void hash_table_delete(hash_table_t *ht)
 	}
 	free(tmp->array);
 	free(tmp);
+	free(ht);
 }
