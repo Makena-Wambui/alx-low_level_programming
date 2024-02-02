@@ -72,3 +72,11 @@ key is the key. key can not be an empty string
 and value is the value associated with the key. value must be duplicated. value can be an empty string
 Returns: 1 if it succeeded, 0 otherwise
 In case of collision, add the new node at the beginning of the list
+
+
+4. Write a function that retrieves a value associated with a key.
+
+Prototype: char *hash_table_get(const hash_table_t *ht, const char *key);
+where ht is the hash table you want to look into
+and key is the key you are looking for
+Returns the value associated with the element, or NULL if key couldn’t be found
