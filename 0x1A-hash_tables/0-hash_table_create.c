@@ -23,7 +23,10 @@ hash_table_t *hash_table_create(unsigned long int size)
 
 	table->array = (hash_node_t **) malloc(table->size * sizeof(*(table->array)));
 	if (table->array == NULL)
+	{
+		free(table);
 		return (NULL);
+	}
 
 	/**
 	 * lets loop throught the array
