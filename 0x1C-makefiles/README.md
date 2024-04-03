@@ -72,3 +72,19 @@ clean is a target that specifies how to remove generated files when you run make
 
 
 Makefiles are powerful tools for automating the build process, managing dependencies, and ensuring that only the necessary files are rebuilt when source files are modified. They are widely used in software development to simplify the process of compiling and building complex projects.
+
+
+By default, Makefile targets are "file targets" - they are used to build files from other files. Make assumes its target is a file, and this makes writing Makefiles relatively easy:
+
+foo: bar
+  create_one_from_the_other foo bar
+
+However, sometimes, you want your Makefile to run commands that do not represent physical files in the file system. Good examples of this are the common targets "clean" and "all". Chances are this isn't the case, but you may potentially have a file named clean in your main directory. In such a case Make will be confused because by default the clean target would be associated with this file and Make will only run it when the file doesn't appear to be up-to-date with regards to its dependencies.
+
+These special targets are called phony and you can explicitly tell Make they're not associated with files, e.g.:
+
+.PHONY: clean
+clean:
+  rm -rf *.o
+
+Now make clean will run as expected even if you do have a file named clean.
