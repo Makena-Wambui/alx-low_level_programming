@@ -11,9 +11,6 @@ OBJ = $(SRC:.c=.o)
 # NAME: the name of the executable
 NAME = school
 
-# the program to delete files
-RM = rm -f
-
 # compiler flags
 CFLAGS = -Wall -Werror -Wextra -pedantic
 
