@@ -1,0 +1,10 @@
+# Define Variables
+# CC: the compiler to be used
+CC = gcc
+
+# SRC: the .c files
+SRC = main.c school.c
+
+# Define targets
+all:
+	$(CC) $(SRC) -o school
