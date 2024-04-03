@@ -1,0 +1,35 @@
+# Define Variables
+# CC: the compiler to be used
+CC = gcc
+
+# SRC: the .c files
+SRC = main.c school.c
+
+# OBJ: the .o files
+OBJ = $(SRC:.c=.o)
+
+# NAME: the name of the executable
+NAME = school
+
+# the program to delete files
+RM = rm -f
+
+# Define targets
+all: $(OBJ)
+	$(CC) $(OBJ) -o $(NAME)
+
+# deletes all Emacs and Vim temporary files along with the executable
+clean:
+	$(RM) *~ $(NAME)
+
+
+# deletes the object files
+oclean:
+	$(RM) $(OBJ)
+
+
+# deletes all Emacs and Vim temporary files, the executable, and the object files
+fclean: clean oclean
+
+# forces recompilation of all source files
+re: fclean all
