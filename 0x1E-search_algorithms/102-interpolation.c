@@ -15,19 +15,17 @@
 int interpolation_search(int *array, size_t size, int value)
 {
 	/* Find indexes of two corners */
-	size_t low = 0, high = (size - 1);
-	size_t pos;
+	size_t low, high, pos;
 
 	if (array == NULL || size == 0)
 		return (-1);
 
-	while (low <= high && value >= array[low] && value <= array[high])
+	for (low = 0, high = size - 1; low <= high;)
 	{
 		if (low == high)
 		{
 			if (array[low] == value)
 			{
-				printf("Value checked array[%ld] = [%d]\n", low, array[low]);
 				return (low);
 			}
 
@@ -42,7 +40,9 @@ int interpolation_search(int *array, size_t size, int value)
 			printf("Value checked array[%ld] is out of range\n", pos);
 			return (-1);
 		}
+
 		printf("Value checked array[%ld] = [%d]\n", pos, array[pos]);
+
 		if (array[pos] == value)
 			return (pos);
 		if (array[pos] < value)
@@ -51,7 +51,5 @@ int interpolation_search(int *array, size_t size, int value)
 			high = pos - 1;
 
 	}
-	if (value < array[low] || value > array[high])
-		printf("Value checked array[%ld] is out of range\n", pos);
 	return (-1);
 }
